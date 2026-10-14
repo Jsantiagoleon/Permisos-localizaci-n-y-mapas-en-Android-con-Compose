@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">Taller-2</string>
+    <string name="app_name">Taller 2</string>
+    <string name="btn_open_camera">Abrir Cámara</string>
+    <string name="btn_open_map">Abrir Mapa</string>
+    <string name="cd_camera_icon">Icono de cámara</string>
+    <string name="cd_map_icon">Icono de mapa</string>
+    <string name="title_home">Pantalla Principal</string>
+    <string name="title_camera">Cámara</string>
+    <string name="title_map">Mapa</string>
+    <string name="placeholder_camera">Pantalla de Cámara</string>
+    <string name="placeholder_map">Pantalla de Mapa</string>
+    <string name="btn_back">Volver</string>
+    <string name="label_photo">Foto</string>
+    <string name="label_video">Video</string>
+    <string name="btn_take_photo">Tomar Foto</string>
+    <string name="btn_record_video">Grabar Video</string>
+    <string name="btn_select_photo">Seleccionar Foto</string>
+    <string name="btn_select_video">Seleccionar Video</string>
+    <string name="cd_selected_image">Imagen seleccionada</string>
+    <string name="cd_selected_video">Video seleccionado</string>
 </resources>
