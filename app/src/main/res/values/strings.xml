@@ -18,4 +18,17 @@
     <string name="btn_select_video">Seleccionar Video</string>
     <string name="cd_selected_image">Imagen seleccionada</string>
     <string name="cd_selected_video">Video seleccionado</string>
+
+    <!-- Pantalla de mapa -->
+    <string name="label_follow_user">¿Mover el mapa a la posición del usuario?</string>
+    <string name="label_address">Dirección</string>
+    <string name="placeholder_address">Ej: Pontificia Universidad Javeriana</string>
+    <string name="cd_search">Buscar dirección</string>
+    <string name="cd_place_icon">Icono de lugar</string>
+    <string name="marker_my_location">Mi ubicación</string>
+    <string name="marker_coordinates">Lat: %1$.5f, Lng: %2$.5f</string>
+    <string name="msg_location_permission_needed">Se necesita el permiso de localización para mostrar tu posición en el mapa.</string>
+    <string name="btn_grant_permission">Conceder permiso</string>
+    <string name="msg_address_not_found">No se encontró la dirección: %1$s</string>
+    <string name="msg_geocoder_unavailable">El servicio de Geocoder no está disponible en este dispositivo.</string>
 </resources>
