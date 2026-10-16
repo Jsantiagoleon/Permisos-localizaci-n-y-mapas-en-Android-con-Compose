@@ -31,6 +31,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.util.Locale
 
 /** Un marcador creado por el usuario (búsqueda por texto o LongClick). */
 data class MapMarker(
@@ -41,7 +42,7 @@ data class MapMarker(
 
 /** Mensaje para mostrar en un Snackbar. Se guarda el id del string (strings.xml) y sus argumentos. */
 data class UiMessage(
-    @StringRes val resId: Int,
+    @param:StringRes val resId: Int,
     val args: List<Any> = emptyList(),
 )
 
@@ -248,6 +249,18 @@ class MapViewModel(application: Application) :
             val title = address.getAddressLine(0) ?: query
             addMarker(position, title)
 
+            // Muestra un mensaje con la distancia desde la ubicación actual
+            val current = _uiState.value.currentLocation
+            if (current != null) {
+                val distance = distanceInMeters(current, position)
+                val distanceText = if (distance >= 1000) {
+                    String.format(Locale.getDefault(), "%.2f km", distance / 1000)
+                } else {
+                    String.format(Locale.getDefault(), "%.0f m", distance)
+                }
+                showMessage(UiMessage(R.string.msg_distance_to_location, listOf(title, distanceText)))
+            }
+
             // Dejamos de seguir al usuario para que la cámara se quede en el punto encontrado
             _uiState.update { it.copy(followUser = false) }
             _cameraEvents.send(CameraTarget(position, SEARCH_ZOOM))
@@ -272,6 +285,18 @@ class MapViewModel(application: Application) :
                 position.longitude,
             )
             addMarker(position, title)
+
+            // Muestra un mensaje con la distancia desde la ubicación actual del usuario
+            val current = _uiState.value.currentLocation
+            if (current != null) {
+                val distance = distanceInMeters(current, position)
+                val distanceText = if (distance >= 1000) {
+                    String.format(Locale.getDefault(), "%.2f km", distance / 1000)
+                } else {
+                    String.format(Locale.getDefault(), "%.0f m", distance)
+                }
+                showMessage(UiMessage(R.string.msg_distance_to_location, listOf(title, distanceText)))
+            }
         }
     }
 
@@ -311,4 +336,3 @@ class MapViewModel(application: Application) :
         private const val LIGHT_ABOVE_LUX = 60f // por encima de esto -> mapa claro
     }
 }
-

@@ -31,4 +31,5 @@
     <string name="btn_grant_permission">Conceder permiso</string>
     <string name="msg_address_not_found">No se encontró la dirección: %1$s</string>
     <string name="msg_geocoder_unavailable">El servicio de Geocoder no está disponible en este dispositivo.</string>
+    <string name="msg_distance_to_location">Punto: %1$s\nDistancia: %2$s</string>
 </resources>
